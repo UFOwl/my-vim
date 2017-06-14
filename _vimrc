@@ -46,11 +46,11 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible "required
 filetype off
-set rtp+=C:/Program\ Files\ (x86)/Vim/vimfiles/bundle/Vundle.vim
-set rtp+=C:/Program\ Files\ (x86)/Vim/vimfiles/bundle/ultisnips
-set rtp+=C:/Program\ Files\ (x86)/Vim/vimfiles/bundle/vim-snippets
+set rtp+=C:/Users/jianshuwang/Vim/vimfiles/bundle/Vundle.vim
+set rtp+=C:/Users/jianshuwang/Vim/vimfiles/bundle/ultisnips
+set rtp+=C:/Users/jianshuwang/Vim/vimfiles/bundle/vim-snippets
 
-call vundle#begin('C:/Program Files (x86)/Vim/vimfiles/bundle')
+call vundle#begin('C:/Users/jianshuwang/Vim/vimfiles/bundle')
 
 "Plugin all here!
 Plugin 'gmarik/Vundle.vim'
@@ -273,6 +273,7 @@ endif
 
 "set guifont=Bitstream_Vera_Sans_Yahei_Mono:h11:cANSI
 set guifont=DejaVuSansMonoForPowerline\ NF:h11:cANSI
+" set guifont=DejaVuSansMono\ NF:h11:cANSI
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -283,14 +284,36 @@ set guifont=DejaVuSansMonoForPowerline\ NF:h11:cANSI
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
+" add an extra space after the icon
+let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ' '
+let g:DevIconsDefaultFolderOpenSymbol = ' '
+
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['ls'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['jade'] = ''
-let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
+
+" the amount of space to use after the glyph character (default ' ')
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+" whether or not to show the nerdtree brackets around flags 
+let g:webdevicons_conceal_nerdtree_brackets = 0
+" Force extra padding in NERDTree so that the filetype icons line up vertically. Currently brackets must be set to show to make the option work
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 
 " => Ultisnips 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+
+" => easymotion
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 
 " => vim-jsx 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -462,7 +485,7 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
-"powerline symbols
+" powerline symbols
 let g:airline_left_sep = 'ਐ'
 let g:airline_left_alt_sep = '਑'
 let g:airline_right_sep = '਒'
